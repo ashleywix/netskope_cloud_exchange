@@ -10,13 +10,13 @@ export class EcsStack extends cdk.Stack {
     const vpc = new cdk.aws_ec2.Vpc
     (this, "MyVpc", {
       maxAzs: 3
-
     });
+
 // New Cluster
     const cluster = new cdk.aws_ecs.Cluster(this, "MyCLuster", {
       vpc: vpc
-
     });
+
 // New ECS Fargate services sd required
     new cdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService(this, "MyFargateService", {
       cluster: cluster,
@@ -25,11 +25,9 @@ export class EcsStack extends cdk.Stack {
       taskImageOptions: {image: cdk.aws_ecs.ContainerImage.fromRegistry("amazon/amazon-ecs-sample") },
       memoryLimitMiB: 2048,
       publicLoadBalancer: true
-       
-
-
     });
-    // New EFS 
+
+// New EFS 
     const fileSystem = new cdk.aws_efs.FileSystem(this, 'MyEfsFileSystem', {
         vpc: new cdk.aws_ec2.Vpc(this, 'VPC'),
         lifecyclePolicy: cdk.aws_efs.LifecyclePolicy.AFTER_14_DAYS, // files are not transitioned to infrequent access (IA) storage by default
