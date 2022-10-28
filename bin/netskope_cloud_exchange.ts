@@ -4,7 +4,8 @@ import * as cdk from 'aws-cdk-lib';
 import { NetskopeCloudExchangeStack } from '../lib/netskope_cloud_exchange-stack';
 
 const app = new cdk.App();
-new NetskopeCloudExchangeStack(app, 'NetskopeCloudExchangeStack', {
+new NetskopeCloudExchangeStack(app, 'NetskopeCloudExchangeStack',
+// {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
@@ -18,4 +19,5 @@ new NetskopeCloudExchangeStack(app, 'NetskopeCloudExchangeStack', {
   // env: { account: '123456789012', region: 'us-east-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+// }
+);

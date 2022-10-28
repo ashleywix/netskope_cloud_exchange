@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct} from 'constructs';
 
 
-export class EcsStack extends cdk.Stack {
+export class NetskopeCloudExchangeStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.Stack) {
     super(scope, id);
 
@@ -17,7 +17,7 @@ export class EcsStack extends cdk.Stack {
       vpc: vpc
     });
 
-// New ECS Fargate services sd required
+// New ECS Fargate services as required
     new cdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService(this, "MyFargateService", {
       cluster: cluster,
       cpu: 512,
